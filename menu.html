@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burger Menu - Ingredients</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>WeLoveBuns Inventory</h2>
+    <a href="index.html">Dashboard</a>
+    <a href="sales.html">Product Sales</a>
+    <a href="stocks.html">Stocks</a>
+    <a href="orders.html">Orders</a>
+    <a href="menu.html" class="active">Menu</a>
+    <a href="settings.html">Settings</a>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <h1>Burger Menu Recipes</h1>
+        <div class="money-display">
+          💰 Balance: RM 5,000.00
+        </div>
+    </div>
+
+  <div class="content">
+    <div class="title-bar">
+      <h2>Ingredient Usage per Burger</h2>
+      <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button class="btn-search">Search</button>
+      </div>
+    </div>
+
+      <table>
+        <tr>
+          <th>Burger Name</th>
+          <th>Buns</th>
+          <th>Chicken Patty</th>
+          <th>Beef Patty</th>
+          <th>Cheese</th>
+          <th>Lettuce</th>
+        </tr>
+        <tr>
+          <td>Classic Beef Burger</td>
+          <td>1</td>
+          <td>-</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Cheese Burger</td>
+          <td>1</td>
+          <td>-</td>
+          <td>-</td>
+          <td>2</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Chicken Burger</td>
+          <td>1</td>
+          <td>1</td>
+          <td>-</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Veggie Burger</td>
+          <td>1</td>
+          <td>-</td>
+          <td>-</td>  
+          <td>1</td>
+          <td>2</td>
+        </tr>
+      </table>
+      <div style="text-align:center; margin-top:15px">
+        <button onclick="alert('You will be directed to Editting Page!')">Edit Menu</button>
+      </div>
+    </div>
+    <div class="add-product">
+      <h2>Add New Menu</h2>
+      <form id="new-product" action="#" method="post">
+        <label for="new-name">Burger Name:</label>
+        <input type="text" id="new-name" name="new_name" placeholder="e.g. Double Beef Burger" required>
+        <br>
+        <label for="bun-use">Buns Used:</label>
+        <input type="number" id="bun-use" name="bun_use" min="0" value="0" required>
+        <br>
+        <label for="patty-use">Patties Used:</label>
+        <input type="number" id="patty-use" name="patty_use" min="0" value="0" required>
+        <br>
+        <label for="cheese-use">Cheese Slices Used:</label>
+        <input type="number" id="cheese-use" name="cheese_use" min="0" value="0">
+        <br>
+        <label for="lettuce-use">Lettuce Leaves Used:</label>
+        <input type="number" id="lettuce-use" name="lettuce_use" min="0" value="0">
+        <br>
+        <label for="new-price">Price (RM):</label>
+        <input type="number" id="new-price" name="new_price" step="0.10" placeholder="e.g. 15.00" required>
+        <br>
+        <button type="submit"onclick="alert('Product Added Successfully!')">Add Product</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders - Inventory</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>WeLoveBuns Inventory</h2>
+    <a href="index.html">Dashboard</a>
+    <a href="sales.html">Product Sales</a>
+    <a href="stocks.html">Stocks</a>
+    <a href="orders.html"class="active">Orders</a>
+    <a href="menu.html">Menu</a>
+    <a href="settings.html">Settings</a>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <h1>Order Ingredients</h1>
+        <div class="money-display">
+          💰 Balance: RM 5,000.00
+        </div>
+    </div>
+   <div class="content">
+    
+        <div class="title-bar">
+        <h2>Place Orders From Suppliers</h2>
+      <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button class="btn-search">Search</button>
+      </div>
+    </div>
+
+  <form action="#" method="post">
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Ingredient</th>
+        <th>Supplier</th>
+        <th>Price per Unit (RM)</th>
+        <th>Unit</th>
+        <th>Order Amount</th>
+      </tr>
+      <tr>
+        <td>001</td>
+        <td>Burger Buns</td>
+        <td>ABC Bakery</td>
+        <td>0.50</td>
+        <td>pcs</td>
+        <td><input type="number" name="buns" min="0" placeholder="0"></td>
+      </tr>
+      <tr>
+        <td>002</td>
+        <td>Beef Patty</td>
+        <td>XYZ Meats</td>
+        <td>4.00</td>
+        <td>pcs</td>
+        <td><input type="number" name="beef" min="0" placeholder="0"></td>
+      </tr>
+      <tr>
+        <td>003</td>
+        <td>Cheddar Cheese</td>
+        <td>DairyBest</td>
+        <td>1.20</td>
+        <td>slice</td>
+        <td><input type="number" name="cheese" min="0" placeholder="0"></td>
+      </tr>
+      <tr>
+        <td>004</td>
+        <td>Lettuce</td>
+        <td>FreshFarm</td>
+        <td>0.80</td>
+        <td>leaf</td>
+        <td><input type="number" name="lettuce" min="0" placeholder="0"></td>
+      </tr>
+      <tr>
+        <td>005</td>
+        <td>Chicken Patty</td>
+        <td>XYZ Meats</td>
+        <td>3.50</td>
+        <td>pcs</td>
+        <td><input type="number" name="chicken" min="0" placeholder="0"></td>
+      </tr>
+    </table>
+      <div class="submit-container">
+       <button type="submit" onclick="alert('Submitted Successfully!')">Submit Order</button>
+      </div>
+
+  </form>
+</div>
+  </div>
+
+</body>
+</html>

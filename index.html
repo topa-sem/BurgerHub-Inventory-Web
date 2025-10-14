@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burger Inventory - Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>WeLoveBuns Inventory</h2>
+    <a href="index.html" class="active">Dashboard</a>
+    <a href="sales.html">Product Sales</a>
+    <a href="stocks.html">Stocks</a>
+    <a href="orders.html">Orders</a>
+    <a href="menu.html">Menu</a>
+    <a href="settings.html">Settings</a>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <h1>Dashboard</h1>
+        <div class="money-display">
+          💰 Balance: RM 5,000.00
+        </div>
+    </div>
+    <div class="content" id="dashboard">
+      <h2 style ="color: rgb(140, 0, 0);">Welcome</h2>
+      <h1>Admin 1</h1>
+    </div>
+     <div class="dashboard-grid">
+
+      <div class="card stock">
+        <h3>Stock Summary</h3>
+        <div class="stat">12 Ingredients</div>
+        <div>4 running low</div>
+      </div>
+
+      <div class="card low">
+        <h3>Low-Stock Alerts</h3>
+        <ul class="low-list">
+          <li>Buns — 10 pcs</li>
+          <li>Patties — 5 pcs</li>
+          <li>Cheese — 8 slices</li>
+        </ul>
+      </div>
+
+      <div class="card sales">
+        <h3>Today's Sales</h3>
+        <div class="stat">42 items</div>
+        <div>Revenue: RM 504.00</div>
+      </div>
+
+      <div class="card orders">
+        <h3>Recent Orders</h3>
+        <p>Buns from ABC Bakery (100 pcs)</p>
+        <p>Patties from XYZ Meats (50 pcs)</p>
+      </div>
+
+      <div class="card actions">
+        <h3>Quick Actions</h3>
+        <a href="sales.html">
+          <button>Record Sale</button>
+        </a>
+        <a href="orders.html">
+        <button>Order Stock</button>
+       </a>
+      </div>
+
+      <div class="card balance">
+        <h3>Balance</h3>
+        <div class="stat">RM 5,000.00</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

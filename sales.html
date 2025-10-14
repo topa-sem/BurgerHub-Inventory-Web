@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burger Menu - Inventory</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>WeLoveBuns Inventory</h2>
+    <a href="index.html">Dashboard</a>
+    <a href="sales.html" class="active">Product Sales</a>
+    <a href="stocks.html">Stocks</a>
+    <a href="orders.html">Orders</a>
+    <a href="menu.html">Menu</a>
+    <a href="settings.html">Settings</a>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <h1>Product Sales</h1>
+        <div class="money-display">
+          💰 Balance: RM 5,000.00
+        </div>
+    </div>
+    <div class="content">
+
+    <div class="title-bar">
+      <h2>Record Daily Sales</h2>
+      <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button class="btn-search">Search</button>
+      </div>
+    </div>
+    
+      <form action="#" method="post">
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Burger Name</th>
+            <th>Price (RM)</th>
+            <th>Units Sold</th>
+          </tr>
+          <tr>
+            <td>001</td>
+            <td>Classic Beef Burger</td>
+            <td>12.00</td>
+            <td><input type="number" name="beef_burger" min="0" placeholder="0"></td>
+          </tr>
+          <tr>
+            <td>002</td>
+            <td>Cheese Burger</td>
+            <td>14.00</td>
+            <td><input type="number" name="cheese_burger" min="0" placeholder="0"></td>
+          </tr>
+          <tr>
+            <td>003</td>
+            <td>Chicken Burger</td>
+            <td>11.00</td>
+            <td><input type="number" name="chicken_burger" min="0" placeholder="0"></td>
+          </tr>
+          <tr>
+            <td>004</td>
+            <td>Veggie Burger</td>
+            <td>10.00</td>
+            <td><input type="number" name="veggie_burger" min="0" placeholder="0"></td>
+          </tr>
+        </table>
+        <div class="submit-container">
+        <button type="submit" onclick="alert('Submitted Successfully!')">Submit Sales</button>
+        </div>
+      </form>
+    </div>
+    <br>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Inventory</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>WeLoveBuns Inventory</h2>
+    <a href="index.html">Dashboard</a>
+    <a href="sales.html">Product Sales</a>
+    <a href="stocks.html">Stocks</a>
+    <a href="orders.html">Orders</a>
+    <a href="menu.html">Menu</a>
+    <a href="settings.html"class="active">Settings</a>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <h1>Settings</h1>
+        <div class="money-display">
+          💰 Balance: RM 5,000.00
+        </div>
+    </div>
+    <div class="content">
+          <div class="card">
+            <h2>Edit Profile</h2>
+            <form id="profile-form">
+              <label for="username">Username:</label>
+              <input type="text" id="username" name="username" placeholder="e.g. admin" required>
+
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" placeholder="e.g. admin@burger.com" required>
+
+
+
+              <button type="submit" class="btn-red" onclick="alert('Changes Saved Successfully!')">Save Changes</button>
+            </form>
+          </div>
+
+          <div class="card">
+            <h2>Change Password</h2>
+            <form id="password-form">
+              <label for="old-password">Old Password:</label>
+              <input type="password" id="old-password" name="old_password" required>
+
+              <label for="new-password">New Password:</label>
+              <input type="password" id="new-password" name="new_password" required>
+
+              <label for="confirm-password">Confirm New Password:</label>
+              <input type="password" id="confirm-password" name="confirm_password" required>
+
+              <button type="submit" class="btn-red" onclick="alert('Password Updated Successfully!')">Update Password</button>
+            </form>
+          </div>
+      <button class="logout-btn" onclick="window.location.href='login.html'">Log Out</button>
+  </div>
+
+</body>
+</html>
