@@ -1,0 +1,180 @@
+/* --- File: css/auth.css --- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Staatliches&display=swap');
+
+:root {
+    --brand-font: 'Staatliches', cursive;
+    --body-font: 'Roboto', sans-serif;
+    --primary-color: #ff8c00; /* Burger Orange */
+    --dark-color: #222;
+    --light-color: #f4f4f4;
+    --error-color: #d93025;
+    --success-color: #1e8e3e;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    
+    /* REPLACE THIS with your own burger background image!
+      e.g.: background-image: url('../images/my-burger-bg.jpg');
+    */
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/bg.png');
+    background-size: cover;
+    background-position: center;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    
+    /* Glassmorphism Effect */
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header .brand {
+    font-family: var(--brand-font);
+    font-size: 4.5rem;
+    color: var(--primary-color);
+    line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    letter-spacing: 2px;
+}
+
+.auth-header h1 {
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--light-color);
+    margin-top: -10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group p {
+    /* Hiding the <p> tags from your PHP */
+    display: none;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: var(--light-color);
+    font-size: 1rem;
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Password Toggle Styles */
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    padding-right: 45px; /* Make space for icon */
+}
+
+.password-container .toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.6);
+}
+/* End Password Styles */
+
+.btn-submit {
+    width: 100%;
+    padding: 16px;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    color: var(--dark-color);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background: #ffa03b;
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+}
+
+.auth-link {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.auth-link a {
+    color: var(--light-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.auth-link a:hover {
+    color: var(--primary-color);
+}
+
+/* Error and Success Messages */
+.auth-message {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.auth-message.error {
+    background: rgba(217, 48, 37, 0.3);
+    color: #f7a7a3;
+    border: 1px solid rgba(217, 48, 37, 0.6);
+}
+
+.auth-message.success {
+    background: rgba(30, 142, 62, 0.3);
+    color: #a3f7b9;
+    border: 1px solid rgba(30, 142, 62, 0.6);
+}
+
