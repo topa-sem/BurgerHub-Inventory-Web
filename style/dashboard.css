@@ -1,0 +1,617 @@
+/* --- File: css/dashboard.css --- */
+/* This one file replaces dashboard.css and dashboard.css 
+  and is re-styled to match the auth.css "BurgerHub" theme.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Staatliches&display=swap');
+
+:root {
+    /* Brand/Theme Colors */
+    --primary-color: #a200ff; /* Burger Orange */
+    --primary-color-hover: #b73aff;
+    --dark-color-1: #1a1a1a; /* Main BG */
+    --dark-color-2: #222;    /* Sidebar BG */
+    --dark-color-3: #2a2a2a; /* Panel BG (Slightly lighter) */
+    --light-color: #f4f4f4;  /* Main text */
+    --muted-color: #888;     /* Muted text */
+    
+    /* Panel/Glass Style */
+    --panel-bg: rgba(42, 42, 42, 0.75); /* var(--dark-color-3) with transparency */
+    --panel-border: 1px solid rgba(255, 255, 255, 0.1);
+    --panel-radius: 12px;
+    
+    /* Fonts */
+    --brand-font: 'Staatliches', cursive;
+    --body-font: 'Roboto', sans-serif;
+    
+    /* Status Colors */
+    --success-color: #1e8e3e;
+    --error-color: #d93025;
+    --alert-color: #fbbc05;
+}
+
+/* --- Global & Reset --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0;
+    background: var(--dark-color-1);
+    color: var(--light-color);
+    font-family: var(--body-font);
+}
+
+/* --- Layout --- */
+.container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.main {
+    flex: 1;
+    padding: 28px;
+    overflow-y: auto;
+    background: var(--dark-color-1);
+}
+
+/* --- Sidebar --- */
+.sidebar {
+    width: 220px;
+    background: var(--dark-color-2);
+    color: var(--light-color);
+    padding: 28px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-right: var(--panel-border);
+}
+
+.sidebar .sidebar-brand {
+    font-family: var(--brand-font);
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.nav a {
+    display: block;
+    color: var(--light-color);
+    padding: 12px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-bottom: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+.nav a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+.nav a.active {
+    background: var(--primary-color);
+    color: var(--dark-color-2);
+    font-weight: 700;
+}
+
+.nav .logout {
+    margin-top: auto;
+    color: var(--muted-color);
+    border-top: 1px solid var(--panel-border);
+    padding-top: 16px;
+}
+.nav .logout:hover {
+    color: var(--error-color);
+    background: transparent;
+}
+
+
+/* --- Top Bar (Header) --- */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.topbar .brand {
+    font-family: var(--brand-font);
+    font-size: 2rem;
+    color: var(--light-color);
+}
+
+.top-right {
+    font-size: 30px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.top-right .balance {
+    font-weight: 700;
+    color: var(--dark-color-2);
+    background: var(--primary-color);
+    padding: 4px 16px;
+    border-radius: 16px;
+    font-size: 24px;
+}
+.top-right .icon a {
+    text-decoration: none;
+    color: var(--muted-color);
+    transition: color 0.2s ease;
+}
+.top-right .icon a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Main Page Title --- */
+.main > h2 {
+    font-size: 2.2rem;      /* Bigger font */
+    font-weight: 700;       /* Heavy font */
+    color: var(--light-color);
+    padding-bottom: 10px;   /* Padding below */
+    margin-bottom: 15px;    /* Space below */
+    border-bottom: 1px solid var(--panel-border);
+}
+
+/* --- Main Content: Dashboard Cards --- */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.card {
+    background: var(--panel-bg);
+    border: var(--panel-border);
+    backdrop-filter: blur(5px);
+    padding: 15px;
+    border-radius: var(--panel-radius);
+    color: var(--light-color);
+}
+
+.card .value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.card .label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--muted-color);
+}
+
+/* --- Main Content: Panels (Tables/Forms) --- */
+.panel {
+    background: var(--panel-bg);
+    border: var(--panel-border);
+    border-radius: var(--panel-radius);
+    padding: 24px;
+    margin-bottom: 28px;
+    overflow-x: auto;
+}
+
+/* --- Panel Titles --- */
+.panel h2, .panel h3 {
+    font-family: var(--body-font);
+    font-weight: 700;           /* Heavy */
+    font-size: 1.75rem;         /* A little bigger (was 1.5rem) */
+    color: var(--light-color);
+    margin: -10px -10px 20px -10px;  /* Pulls title to edges */
+    padding: 20px 24px;             /* Added padding */
+    border-bottom: 1px solid var(--panel-border); /* Added separator */
+}
+
+/* --- Tables --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.2rem;
+}
+table thead {
+    border-bottom: 2px solid var(--primary-color);
+}
+table th {
+    padding: 12px 10px;
+    text-align: left;
+    font-weight: 800;
+    color: var(--light-color);
+    font-size: 1.5rem;
+}
+table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--panel-border);
+    vertical-align: middle;
+}
+table tr:last-child td {
+    border-bottom: none;
+}
+table td.col-num {
+    text-align: right;
+}
+
+/* --- Buttons --- */
+.btn, .action-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    font-family: var(--body-font);
+    transition: all 0.2s ease;
+}
+.btn-primary,
+.btn[type="submit"] {
+    background: var(--primary-color);
+    color: var(--dark-color-2);
+}
+.btn-primary:hover,
+.btn[type="submit"]:hover {
+    background: var(--primary-color-hover);
+}
+
+.btn-delete, .btn-cancel {
+    background: var(--error-color);
+    color: var(--light-color);
+}
+.btn-delete:hover, .btn-cancel:hover {
+    background: #b0261d;
+}
+
+.btn-edit {
+    background: var(--muted-color);
+    color: var(--dark-color-2);
+}
+.btn-edit:hover {
+    background: var(--light-color);
+}
+.btn-complete {
+    background: var(--success-color);
+    color: var(--light-color);
+}
+.btn-complete:hover {
+    background: #197d34;
+}
+.btn-manage {
+    background: var(--primary-color);
+    color: var(--dark-color-2);
+}
+
+.logout-actions {
+    margin-top: 20px;
+}
+.btn-cancel {
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #7f8c8d; /* Gray */
+    color: white;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+.btn-cancel:hover {
+    background-color: #95a5a6;
+}
+.btn-danger {
+    padding: 10px 15px;
+    background-color: #e74c3c; /* Red */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+/* --- Forms --- */
+.form-inline {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+/* 1. Styles for the input boxes in form-inline */
+.form-inline input[type="text"],
+.form-inline input[type="number"],
+.form-inline input[type="tel"],
+.form-inline input[type="email"]{
+    flex: 1; /* Allows inputs to grow and fill space */
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px; /* This makes them 'a little round' */
+    color: var(--light-color);
+    font-size: 1rem;
+}
+
+/* 2. Style for the placeholder text itself */
+.form-inline input::placeholder {
+    color: var(--muted-color); /* Grey theme color (#888) */
+    font-size: 1rem;           /* 'Bigger' font (matches input) */
+    opacity: 1;                /* Prevents browsers from fading it */
+}
+
+/* 3. Style for when the input is focused (clicked) */
+.form-inline input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+.form-vertical label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--muted-color);
+}
+.form-vertical input[type="text"],
+.form-vertical input[type="number"],
+.form-vertical input[type="password"],
+.form-vertical input[type="email"],
+.form-vertical select {
+    width: 100%;
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: var(--light-color);
+    font-size: 1rem;
+    margin-bottom: 16px;
+}
+.form-vertical input:focus,
+.form-vertical select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+table input[type="number"] {
+    /* --- Size & Spacing --- */
+    width: 90px; 
+    margin-bottom: 0; 
+    padding: 10px 12px;
+    text-align: right;
+    
+    /* --- Theme Colors (from the working inline style) --- */
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--light-color); /* Uses your theme variable */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    /* --- Font & Shape (from the working inline style) --- */
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+/*
+  Styles the dropdown options list 
+*/
+.form-vertical select option {
+    background: var(--dark-color-3); /* Dark panel background: #2a2a2a */
+    color: var(--light-color);      /* Light text: #f4f4f4 */
+}
+
+/* --- Specific Page Styles (from admin/dashboard.css) --- */
+
+/* Dashboard Alerts */
+.alert-low-stock, .alert-stock-ok {
+    padding: 16px;
+    border-radius: var(--panel-radius);
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+.alert-low-stock {
+    background: rgba(251, 188, 5, 0.2);
+    border: 1px solid var(--alert-color);
+    color: var(--alert-color);
+}
+.alert-stock-ok {
+    background: rgba(30, 142, 62, 0.2);
+    border: 1px solid var(--success-color);
+    color: #a3f7b9;
+}
+
+/* Sales (POS) Page */
+.pos-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 28px;
+}
+.cart-table {
+    margin-bottom: 20px;
+}
+.cart-table tfoot th {
+    font-size: 1.2rem;
+    text-align: right;
+    color: var(--primary-color);
+}
+.cart-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+.cart-actions form {
+    display: inline-block;
+}
+
+/* Stocks Page */
+.stock-form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.stock-form input[type="number"] {
+    width: 80px;
+    padding: 8px 10px;
+    text-align: right;
+    margin-bottom: 0;
+}
+
+/* Orders Page */
+.order-header {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    font-size: 1.1rem;
+    margin-bottom: 24px;
+}
+.order-header .total-amount {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-left: auto;
+}
+.back-link {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.order-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 28px;
+}
+.finalize-panel {
+    background: rgba(217, 48, 37, 0.1);
+    border-color: rgba(217, 48, 37, 0.5);
+}
+.inline-form {
+    display: inline-block;
+    margin-right: 10px;
+}
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+.status-pending { background: rgba(251, 188, 5, 0.2); color: var(--alert-color); }
+.status-completed { background: rgba(30, 142, 62, 0.2); color: #a3f7b9; }
+.status-cancelled { background: rgba(217, 48, 37, 0.2); color: #f7a7a3; }
+.message { padding: 10px; margin: 10px 0; border-radius: 4px; }
+.success { background: #d4edda; color: #155724; }
+.error { background: #f8d7da; color: #721c24; }
+.low-stock { color: #dc3545; font-weight: bold; }
+
+/* Calendar/Date Picker Styling */
+.date-selector {
+position: relative;
+display: inline-block;
+margin-right: 20px;
+}
+
+.date-form {
+display: flex;
+align-items: center;
+gap: 0;
+}
+
+/* Make the date input visible but styled */
+#datePicker {
+width: 160px;
+padding: 10px 16px;
+border: 2px solid #e9ecef;
+border-radius: 25px;
+font-size: 14px;
+font-weight: 500;
+color: #495057;
+background: white;
+cursor: pointer;
+transition: all 0.3s ease;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#datePicker:hover {
+border-color: #667eea;
+box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+#datePicker:focus {
+outline: none;
+border-color: #667eea;
+box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+}
+
+/* Hide the default calendar icon and use custom styling */
+#datePicker::-webkit-calendar-picker-indicator {
+background: transparent;
+color: transparent;
+cursor: pointer;
+position: absolute;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+}
+
+/* Custom appearance for the date text */
+.date-form {
+position: relative;
+}
+
+.date-form::after {
+position: absolute;
+right: 12px;
+top: 50%;
+transform: translateY(-50%);
+pointer-events: none;
+z-index: 1;
+}
+
+/* Style the text inside the date input */
+#datePicker {
+text-align: center;
+font-weight: 600;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white;
+border: none;
+min-width: 160px;
+font-size: 20px;
+}
+
+/* Remove the default dropdown arrow in Firefox */
+#datePicker::-moz-focus-inner {
+border: 0;
+}
+
+/* Today badge styling */
+.today-badge {
+background: rgba(255, 255, 255, 0.3);
+padding: 2px 8px;
+border-radius: 12px;
+font-size: 0.75em;
+font-weight: 500;
+margin-left: 8px;
+}
+
+/* Pulse animation for today */
+.date-pulse {
+animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+0% {
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+50% {
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.8);
+}
+100% {
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+.date-selector {
+    margin-right: 10px;
+}
+
+#datePicker {
+    min-width: 140px;
+    padding: 8px 12px;
+    font-size: 13px;
+}
+}
