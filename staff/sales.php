@@ -1,5 +1,6 @@
 <?php
 session_start();
+$staff_id = $_SESSION['user_id'];
 require "../config/db_conn.php";
 
 // --- Verify staff login ---
@@ -112,9 +113,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 throw new Exception($error_details);
             }
 
+            if (empty($staff_id)) {
+                echo "Error: Staff ID not found. Please log in again.";
+                exit;
+            }
+
             // Create SALE
             $sale_stmt = $conn->prepare("INSERT INTO SALE (user_id, sale_date, total_revenue) VALUES (?, NOW(), ?)");
-            $sale_stmt->bind_param("id", $user_id, $total_revenue);
+            $sale_stmt->bind_param("id", $staff_id, $total_revenue);
             $sale_stmt->execute();
             $sale_id = $conn->insert_id;
             $sale_stmt->close();

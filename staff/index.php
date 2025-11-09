@@ -55,17 +55,6 @@ $res = $stmt->get_result();
 $todays_revenue = $res->fetch_assoc()['todays_revenue'] ?? 0;
 $stmt->close();
 
-// Orders handled by this staff in last 7 days
-$stmt = $conn->prepare("
-    SELECT COUNT(*) AS recent_orders
-    FROM `ORDER`
-    WHERE user_id = ? AND order_date >= DATE_SUB(NOW(), INTERVAL 7 DAY)
-");
-$stmt->bind_param("i", $staff_id);
-$stmt->execute();
-$res = $stmt->get_result();
-$recent_orders = $res->fetch_assoc()['recent_orders'] ?? 0;
-$stmt->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,7 +69,7 @@ $stmt->close();
     <div class="main">
         <?php include 'includes/header.php'; ?>
 
-        <h2>Welcome back, <?php echo htmlspecialchars($staff_name); ?> 👋</h2>
+        <h2>Hello, <?php echo htmlspecialchars($staff_name); ?> 👋</h2>
         <p>Your performance summary:</p>
 
         <div class="cards">
@@ -95,10 +84,6 @@ $stmt->close();
             <div class="card">
                 <div class="value"><?php echo (int)$total_sales; ?></div>
                 <div class="label">Total Sales</div>
-            </div>
-            <div class="card">
-                <div class="value"><?php echo (int)$recent_orders; ?></div>
-                <div class="label">Orders (Last 7 Days)</div>
             </div>
         </div>
 

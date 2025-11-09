@@ -322,10 +322,12 @@ table td.col-num {
     margin-bottom: 8px;
     color: var(--muted-color);
 }
+
 .form-vertical input[type="text"],
 .form-vertical input[type="number"],
 .form-vertical input[type="password"],
 .form-vertical input[type="email"],
+.form-vertical input[type="file"],
 .form-vertical select {
     width: 100%;
     padding: 12px 14px;
@@ -336,6 +338,7 @@ table td.col-num {
     font-size: 1rem;
     margin-bottom: 16px;
 }
+
 .form-vertical input:focus,
 .form-vertical select:focus {
     outline: none;
