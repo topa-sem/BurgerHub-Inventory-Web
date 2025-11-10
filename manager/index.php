@@ -54,6 +54,14 @@ $stmt = $conn->prepare("SELECT SUM(total_revenue) AS selected_date_revenue FROM 
 $stmt->bind_param("si", $selected_date, $user_id);
 $stmt->execute(); $res = $stmt->get_result(); $selected_date_revenue = $res->fetch_assoc()['selected_date_revenue'] ?? 0; $stmt->close();
 
+// --- Today's Expenses (Filtered by selected date and user) ---
+$stmt = $conn->prepare("SELECT SUM(total_amount) AS today_expenses FROM `ORDER` WHERE DATE(order_date) = ? AND user_id = ? AND status = 'Completed'");
+$stmt->bind_param("si", $selected_date, $user_id);
+$stmt->execute(); 
+$res = $stmt->get_result(); 
+$today_expenses = $res->fetch_assoc()['today_expenses'] ?? 0; 
+$stmt->close();
+
 // Current account balance
 $current_balance = $_SESSION['account_balance'] ?? 0;
 ?>
